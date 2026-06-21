@@ -139,7 +139,7 @@ const Index = () => {
               <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
               Набор курьеров открыт
             </span>
-            <h1 className="mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
+            <h1 className="mt-5 text-4xl leading-[1.1] tracking-tight md:text-6xl lg:text-7xl font-bold">
               Работай<br />
               <span className="relative inline-block">
                 курьером
