@@ -72,7 +72,6 @@ const Index = () => {
             <a href="#requirements" className="transition hover:text-ink">Требования</a>
             <a href="#steps" className="transition hover:text-ink">Как начать</a>
             <a href="#faq" className="transition hover:text-ink">Вопросы</a>
-            <a href="#contacts" className="transition hover:text-ink">Контакты</a>
           </nav>
           <Button onClick={go} className="hidden rounded-full bg-ink px-5 font-semibold text-white hover:bg-ink/90 md:inline-flex">
             Стать курьером
@@ -88,7 +87,6 @@ const Index = () => {
               <a href="#requirements" onClick={() => setMenuOpen(false)}>Требования</a>
               <a href="#steps" onClick={() => setMenuOpen(false)}>Как начать</a>
               <a href="#faq" onClick={() => setMenuOpen(false)}>Вопросы</a>
-              <a href="#contacts" onClick={() => setMenuOpen(false)}>Контакты</a>
               <Button onClick={go} className="rounded-full bg-ink font-semibold text-white">Стать курьером</Button>
             </div>
           </div>
@@ -258,37 +256,23 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contacts / Footer */}
-      <footer id="contacts" className="bg-ink py-14 text-white">
-        <div className="container grid gap-10 md:grid-cols-3">
-          <div>
-            <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-yellow">
-                <Icon name="UtensilsCrossed" size={20} className="text-ink" />
-              </div>
-              <span className="text-lg font-bold">Яндекс Еда</span>
+      {/* Footer */}
+      <footer className="bg-ink py-14 text-white">
+        <div className="container flex flex-col items-center gap-5 text-center">
+          <div className="flex items-center gap-2">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-yellow">
+              <Icon name="UtensilsCrossed" size={20} className="text-ink" />
             </div>
-            <p className="mt-4 max-w-xs text-sm text-white/60">
-              Официальный набор курьеров-партнёров. Свободный график и стабильный доход.
-            </p>
+            <span className="text-lg font-bold">Яндекс Еда</span>
           </div>
-          <div>
-            <h4 className="font-bold">Контакты рекрутера</h4>
-            <ul className="mt-4 space-y-3 text-sm text-white/70">
-              <li className="flex items-center gap-3"><Icon name="Phone" size={18} className="text-yellow" /> +7 (___) ___-__-__</li>
-              <li className="flex items-center gap-3"><Icon name="Send" size={18} className="text-yellow" /> Telegram: @username</li>
-              <li className="flex items-center gap-3"><Icon name="Mail" size={18} className="text-yellow" /> recruiter@email.ru</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold">Начать работу</h4>
-            <p className="mt-4 text-sm text-white/70">Заполни анкету — мы свяжемся с тобой и поможем с оформлением.</p>
-            <Button onClick={go} className="mt-5 rounded-full bg-yellow font-bold text-ink hover:bg-yellow/90">
-              Оставить заявку
-            </Button>
-          </div>
+          <p className="max-w-md text-sm text-white/60">
+            Официальный набор курьеров-партнёров. Свободный график и стабильный доход.
+          </p>
+          <Button onClick={go} className="rounded-full bg-yellow font-bold text-ink hover:bg-yellow/90">
+            Стать курьером
+          </Button>
         </div>
-        <div className="container mt-10 border-t border-white/10 pt-6 text-sm text-white/40">
+        <div className="container mt-10 border-t border-white/10 pt-6 text-center text-sm text-white/40">
           © 2026 Набор курьеров Яндекс.Еда. Все права защищены.
         </div>
       </footer>
