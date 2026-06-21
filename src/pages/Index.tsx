@@ -15,7 +15,7 @@ const HERO_IMG =
   'https://cdn.poehali.dev/projects/8e0ffd89-1049-4107-9ee2-4f408e4b556f/files/859201a6-1ded-43a2-b73d-94c2149cd4cc.jpg';
 
 const benefits = [
-  { icon: 'Wallet', title: 'До 5 500 ₽ в день', text: 'Чем больше заказов выполняешь — тем выше доход. Никаких ограничений.' },
+  { icon: 'Wallet', title: 'От 5 000 ₽ в день', text: 'Чем больше заказов выполняешь — тем выше доход. Никаких ограничений.' },
   { icon: 'CalendarClock', title: 'Свободный график', text: 'Сам решаешь, когда выходить на смену. Совмещай с учёбой или другой работой.' },
   { icon: 'Banknote', title: 'Моментальные выплаты', text: 'Деньги поступают моментально на карту Яндекс Про после каждого заказа.' },
   { icon: 'Bike', title: 'Пешком, на велосипеде или авто', text: 'Работай так, как тебе удобно. Способ доставки выбираешь сам.' },
@@ -104,7 +104,7 @@ const Index = () => {
               Работай курьером в Яндекс.Еде
             </h1>
             <p className="mt-5 max-w-md text-lg text-ink/80">
-              Свободный график, моментальные выплаты на карту Яндекс Про и доход до 5 500 ₽ в день. Начни уже сегодня.
+              Свободный график, моментальные выплаты на карту Яндекс Про и доход от 5 000 ₽ в день. Начни уже сегодня.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button onClick={go} size="lg" className="rounded-full bg-ink px-8 text-base font-bold text-white hover:bg-ink/90">
@@ -168,7 +168,7 @@ const Index = () => {
           </div>
           <div className="rounded-3xl bg-ink p-10 text-white">
             <Icon name="TrendingUp" size={40} className="text-yellow" />
-            <div className="mt-6 text-5xl font-extrabold">до 5 500 ₽</div>
+            <div className="mt-6 text-5xl font-extrabold">от 5 000 ₽</div>
             <div className="mt-1 text-white/70">средний доход активного курьера в день</div>
             <div className="mt-8 h-px bg-white/10" />
             <p className="mt-6 text-white/80">Реальный заработок зависит от количества выполненных заказов и города работы.</p>
