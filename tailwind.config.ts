@@ -23,9 +23,9 @@ export default {
 			},
 			colors: {
 				yellow: {
-					DEFAULT: '#FF6A00',
+					DEFAULT: '#FCE000',
 				},
-				ink: '#1A1A1A',
+				ink: '#21201F',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
