@@ -11,6 +11,8 @@ import {
 const REG_URL =
   'https://reg.eda.yandex.ru/?advertisement_campaign=forms_for_agents&user_invite_code=cf9de84c45fe4d1bb8ea9a6c97512c5c&utm_content=blank';
 
+const LOGO_URL = 'https://logo-teka.com/wp-content/uploads/2025/06/yandex-eda-sign-logo.svg';
+
 const HERO_IMG =
   'https://cdn.poehali.dev/projects/8e0ffd89-1049-4107-9ee2-4f408e4b556f/files/859201a6-1ded-43a2-b73d-94c2149cd4cc.jpg';
 
@@ -64,11 +66,8 @@ const Index = () => {
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur">
         <div className="container flex h-14 items-center justify-between px-4 md:h-16 md:px-8">
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-yellow md:h-9 md:w-9">
-              <Icon name="UtensilsCrossed" size={18} className="text-ink" />
-            </div>
-            <span className="text-base font-bold md:text-lg">Яндекс <span className="font-normal text-gray-500">Еда</span></span>
+          <div className="flex items-center">
+            <img src={LOGO_URL} alt="Яндекс Еда" className="h-8 w-auto md:h-9" />
           </div>
           <nav className="hidden items-center gap-7 text-sm font-medium text-gray-600 md:flex">
             <a href="#benefits" className="transition hover:text-ink">Преимущества</a>
@@ -276,11 +275,8 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-ink py-10 text-white md:py-14">
         <div className="container flex flex-col items-center gap-4 px-4 text-center md:gap-5 md:px-8">
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-yellow md:h-9 md:w-9">
-              <Icon name="UtensilsCrossed" size={18} className="text-ink" />
-            </div>
-            <span className="text-base font-bold md:text-lg">Яндекс Еда</span>
+          <div className="flex items-center">
+            <img src={LOGO_URL} alt="Яндекс Еда" className="h-8 w-auto brightness-0 invert md:h-9" />
           </div>
           <p className="max-w-md text-xs text-white/60 md:text-sm">
             Официальный набор курьеров-партнёров. Свободный график и стабильный доход.
