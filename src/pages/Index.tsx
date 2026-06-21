@@ -124,15 +124,15 @@ const Index = () => {
               </Button>
             </div>
             <div className="mt-6 grid grid-cols-3 gap-3 md:mt-8 md:flex md:gap-8">
-              <div className="rounded-xl bg-ink/10 p-3 text-center md:rounded-none md:bg-transparent md:p-0 md:text-left">
+              <div className="p-0 text-center md:text-left">
                 <div className="text-lg font-extrabold md:text-2xl">2–3 часа</div>
                 <div className="text-xs text-ink/70 md:text-sm">на оформление</div>
               </div>
-              <div className="rounded-xl bg-ink/10 p-3 text-left md:rounded-none md:bg-transparent md:p-0 md:text-left">
+              <div className="p-0 text-left">
                 <div className="text-sm font-extrabold md:text-2xl">мгновенно</div>
                 <div className="text-xs text-ink/70 md:text-sm">выплаты на карту</div>
               </div>
-              <div className="rounded-xl bg-ink/10 p-3 text-center md:rounded-none md:bg-transparent md:p-0 md:text-left">
+              <div className="p-0 text-center md:text-left">
                 <div className="text-lg font-extrabold md:text-2xl">24/7</div>
                 <div className="text-xs text-ink/70 md:text-sm">поддержка</div>
               </div>
