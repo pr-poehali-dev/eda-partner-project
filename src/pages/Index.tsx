@@ -62,7 +62,7 @@ const Index = () => {
   const go = () => window.open(REG_URL, '_blank');
 
   return (
-    <div className="min-h-screen bg-yellow font-sans text-ink">
+    <div className="min-h-screen bg-white font-sans text-ink">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur">
         <div className="container flex h-14 items-center justify-between px-4 md:h-16 md:px-8">
