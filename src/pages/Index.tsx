@@ -18,7 +18,7 @@ const BIKE_IMG = 'https://cdn.poehali.dev/projects/8e0ffd89-1049-4107-9ee2-4f408
 const WALK_IMG = 'https://cdn.poehali.dev/projects/8e0ffd89-1049-4107-9ee2-4f408e4b556f/files/0368a7e7-6655-417b-9883-28b185c7aa1d.jpg';
 
 const benefits = [
-  { icon: 'Wallet', title: 'До 5 000 ₽ в день', text: 'Чем больше заказов выполняешь — тем выше доход. Никаких потолка и ограничений.' },
+  { icon: 'Wallet', title: 'От 5 000 рублей в день', text: 'Чем больше заказов выполняешь — тем выше доход. Никаких потолка и ограничений.' },
   { icon: 'CalendarClock', title: 'Свободный график', text: 'Сам решаешь, когда выходить на смену. Работай 2 часа или весь день — как удобно.' },
   { icon: 'Banknote', title: 'Мгновенные выплаты', text: 'На карту Яндекс Про деньги приходят в течение нескольких минут после завершения заказа.' },
   { icon: 'Bike', title: 'Любой транспорт', text: 'Пешком, на самокате, велосипеде, скутере или авто — выбираешь сам.' },
@@ -109,7 +109,7 @@ const Index = () => {
               Работай курьером —<br className="hidden md:block" /> зарабатывай сразу
             </h1>
             <p className="mt-3 text-base text-ink/80 md:mt-5 md:max-w-md md:text-lg">
-              Свободный график, мгновенные выплаты и доход до 5 000 ₽ в день. Оформление за 2–3 часа, первый заказ — уже сегодня.
+              Свободный график, мгновенные выплаты и доход от 5 000 рублей в день. Оформление за 2–3 часа, первый заказ — уже сегодня.
             </p>
             <div className="mt-6 flex flex-col gap-3 md:mt-8 md:flex-row">
               <Button onClick={go} size="lg" className="w-full rounded-full bg-ink px-8 text-base font-bold text-white hover:bg-ink/90 md:w-auto">
@@ -150,7 +150,7 @@ const Index = () => {
       <section className="bg-ink text-white">
         <div className="container grid grid-cols-2 gap-0 px-4 md:grid-cols-4 md:px-8">
           {[
-            { value: 'до 5 000 ₽', label: 'в день' },
+            { value: 'от 5 000 ₽', label: 'в день' },
             { value: '150 000+', label: 'курьеров в России' },
             { value: '1–2 дня', label: 'до первой смены' },
             { value: '0 ₽', label: 'комиссия с чаевых' },
@@ -229,7 +229,7 @@ const Index = () => {
           </div>
           <div className="rounded-3xl bg-ink p-7 text-white md:p-10">
             <Icon name="TrendingUp" size={36} className="text-yellow" />
-            <div className="mt-5 text-4xl font-extrabold text-yellow md:mt-6 md:text-5xl">до 5 000 ₽</div>
+            <div className="mt-5 text-4xl font-extrabold text-yellow md:mt-6 md:text-5xl">от 5 000 ₽</div>
             <div className="mt-1 text-sm text-white/70 md:text-base">средний доход активного курьера в день</div>
             <div className="mt-6 h-px bg-white/10 md:mt-8" />
             <div className="mt-5 grid grid-cols-2 gap-4 md:mt-6">
