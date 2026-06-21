@@ -128,7 +128,7 @@ const Index = () => {
                 <div className="text-lg font-extrabold md:text-2xl">2–3 часа</div>
                 <div className="text-xs text-ink/70 md:text-sm">на оформление</div>
               </div>
-              <div className="rounded-xl bg-ink/10 p-3 text-center md:rounded-none md:bg-transparent md:p-0 md:text-left">
+              <div className="rounded-xl bg-ink/10 p-3 text-left md:rounded-none md:bg-transparent md:p-0 md:text-left">
                 <div className="text-base font-extrabold md:text-2xl">моментально</div>
                 <div className="text-xs text-ink/70 md:text-sm">выплаты на карту</div>
               </div>
