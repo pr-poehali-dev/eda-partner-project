@@ -99,6 +99,7 @@ const Index = () => {
         <div className="container flex h-14 items-center justify-between px-4 md:h-16 md:px-8">
           <div className="flex items-center gap-2">
             <img src={LOGO_URL} alt="Яндекс Еда" className="h-8 w-auto md:h-9" />
+            <span className="text-base font-bold md:text-lg">Яндекс <span className="font-normal text-gray-500">Еда</span></span>
           </div>
           <nav className="hidden items-center gap-7 text-sm font-medium text-gray-600 md:flex">
             <a href="#benefits" className="transition hover:text-ink">Преимущества</a>
