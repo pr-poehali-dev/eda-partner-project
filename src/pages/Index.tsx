@@ -322,7 +322,7 @@ const Index = () => {
                 <div className="mt-0.5 text-2xl font-extrabold text-yellow">150К+</div>
               </div>
               {/* Бейдж рейтинг */}
-              <div className="absolute bottom-36 -right-4 rounded-2xl bg-yellow px-4 py-2.5 shadow-xl md:-right-10">
+              <div className="absolute bottom-10 -right-4 rounded-2xl bg-yellow px-4 py-2.5 shadow-xl md:-right-10">
                 <div className="flex items-center gap-1">
                   {[1,2,3,4,5].map(i => <Icon key={i} name="Star" size={12} className="fill-ink text-ink" />)}
                 </div>
