@@ -258,17 +258,17 @@ const Index = () => {
               Набор курьеров открыт
             </span>
             <h1 className="mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
-              Работай<br />
-              <span className="relative inline-block">
-                курьером
+              Стань курьером<br />
+              <span className="relative inline-block whitespace-nowrap">
+                Яндекс Еды
                 <span className="absolute -bottom-1 left-0 h-2 w-full rounded-full bg-ink/20" />
               </span>
-              {' '}—<br />
-              зарабатывай
+              <br />
+              <span className="text-ink/70">и зарабатывай</span>
             </h1>
             <p className="mt-5 max-w-md text-base leading-relaxed text-ink/75 md:text-lg">
               Свободный график, мгновенные выплаты и доход<br className="hidden md:block" />
-              <strong> от 5 000 рублей в день</strong>. Оформление за 2–3 часа.
+              <strong> от 5 000 рублей в день</strong>. Оформление за 2–3 часа — начни уже сегодня.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
