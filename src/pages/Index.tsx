@@ -237,14 +237,22 @@ const Index = () => {
       </header>
 
       {/* Hero */}
-      <section className="relative min-h-[90vh] overflow-hidden bg-yellow">
-        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-ink/5" />
-        <div className="pointer-events-none absolute -bottom-20 left-1/3 h-72 w-72 rounded-full bg-ink/5" />
+      <section className="relative min-h-[92vh] overflow-hidden">
+        {/* Фон: левая часть — жёлтая, правая — тёмная (на десктопе) */}
+        <div className="absolute inset-0 flex">
+          <div className="w-full bg-yellow md:w-[55%]" />
+          <div className="hidden bg-ink md:block md:w-[45%]" />
+        </div>
+        {/* Декоративные круги */}
+        <div className="pointer-events-none absolute left-[30%] top-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/4 rounded-full bg-white/10" />
+        <div className="pointer-events-none absolute bottom-0 left-10 h-48 w-48 rounded-full bg-ink/5" />
 
-        <div className="container relative grid min-h-[90vh] items-center gap-8 px-4 py-12 md:grid-cols-2 md:gap-12 md:px-8 md:py-0">
+        <div className="container relative grid min-h-[92vh] items-center gap-8 px-4 py-16 md:grid-cols-2 md:gap-10 md:px-8 md:py-0">
+
+          {/* Левая колонка — текст */}
           <div className="flex flex-col justify-center">
-            {/* Социальное доказательство — сегодня подали */}
-            <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-xs font-semibold text-ink shadow-sm backdrop-blur">
+            {/* Соцдоказательство */}
+            <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold text-ink shadow backdrop-blur">
               <span className="flex -space-x-1">
                 {['А', 'М', 'Д'].map((l, i) => (
                   <span key={i} className="flex h-5 w-5 items-center justify-center rounded-full bg-ink text-[9px] font-bold text-yellow ring-2 ring-white">{l}</span>
@@ -253,76 +261,107 @@ const Index = () => {
               <span><strong>{applicants} человек</strong> подали заявку сегодня</span>
             </div>
 
-            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-ink/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-ink">
+            {/* Бейдж статуса */}
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-ink/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-ink">
               <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
               Набор курьеров открыт
             </span>
+
             <h1 className="mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
               Стань курьером<br />
               <span className="relative inline-block whitespace-nowrap">
                 Яндекс Еды
-                <span className="absolute -bottom-1 left-0 h-2 w-full rounded-full bg-ink/20" />
+                <span className="absolute -bottom-1 left-0 h-[6px] w-full rounded-full bg-ink/25" />
               </span>
               <br />
-              <span className="text-ink/70">и зарабатывай</span>
+              <span className="text-ink/60">и зарабатывай</span>
             </h1>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-ink/75 md:text-lg">
+
+            <p className="mt-5 max-w-md text-base leading-relaxed text-ink/70 md:text-lg">
               Свободный график, мгновенные выплаты и доход<br className="hidden md:block" />
-              <strong> от 5 000 рублей в день</strong>. Оформление за 2–3 часа — начни уже сегодня.
+              <strong className="text-ink"> от 5 000 рублей в день</strong>. Оформление за 2–3 часа — начни уже сегодня.
             </p>
 
+            {/* Теги */}
             <div className="mt-5 flex flex-wrap gap-2">
               {['Официальное трудоустройство', 'Бесплатная экипировка', 'Поддержка 24/7'].map(t => (
-                <span key={t} className="flex items-center gap-1.5 rounded-full border border-ink/15 bg-white/50 px-3 py-1 text-xs font-medium text-ink">
+                <span key={t} className="flex items-center gap-1.5 rounded-full border border-ink/15 bg-white/60 px-3 py-1.5 text-xs font-medium text-ink shadow-sm">
                   <Icon name="Check" size={12} />
                   {t}
                 </span>
               ))}
             </div>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Button onClick={go} size="lg" className="rounded-full bg-ink px-8 text-base font-bold text-white shadow-xl transition hover:scale-105 hover:bg-ink/90 hover:shadow-2xl active:scale-100">
+            {/* Кнопки */}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button onClick={go} size="lg" className="group rounded-full bg-ink px-9 text-base font-bold text-white shadow-2xl transition-all hover:scale-105 hover:bg-ink/85 active:scale-100">
                 Стать курьером
-                <Icon name="ArrowRight" size={20} className="ml-1" />
+                <Icon name="ArrowRight" size={20} className="ml-1.5 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button
                 onClick={() => document.getElementById('calc')?.scrollIntoView({ behavior: 'smooth' })}
                 size="lg"
                 variant="outline"
-                className="rounded-full border-ink/25 bg-white/50 px-8 text-base font-semibold text-ink backdrop-blur hover:bg-white/80"
+                className="rounded-full border-2 border-ink/20 bg-white/60 px-8 text-base font-semibold text-ink backdrop-blur hover:border-ink/40 hover:bg-white/90"
               >
                 <Icon name="Calculator" size={18} className="mr-2" />
                 Посчитать доход
               </Button>
             </div>
 
-            <div className="mt-8 flex gap-6 border-t border-ink/10 pt-6">
+            {/* Мини-статы */}
+            <div className="mt-8 flex gap-7 border-t border-ink/10 pt-7">
               {[{ v: '2–3 часа', l: 'оформление' }, { v: 'мгновенно', l: 'выплаты' }, { v: '24/7', l: 'поддержка' }].map(s => (
                 <div key={s.l}>
                   <div className="text-lg font-extrabold md:text-xl">{s.v}</div>
-                  <div className="text-xs text-ink/60">{s.l}</div>
+                  <div className="text-xs text-ink/50">{s.l}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Фото */}
-          <div className="relative flex items-center justify-center">
-            <div className="relative w-full max-w-md">
-              <div className="overflow-hidden rounded-[2.5rem] shadow-2xl">
-                <img src={HERO_IMG} alt="Курьер Яндекс Еды" className="h-[420px] w-full object-cover md:h-[520px]" />
+          {/* Правая колонка — фото */}
+          <div className="relative flex items-center justify-center py-8 md:py-0">
+            {/* Декоративное кольцо */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="h-[440px] w-[440px] rounded-full border-2 border-white/10 md:h-[560px] md:w-[560px]" />
+            </div>
+
+            <div className="relative w-full max-w-sm md:max-w-md">
+              {/* Фото */}
+              <div className="relative overflow-hidden rounded-[2.5rem] shadow-[0_32px_80px_rgba(0,0,0,0.35)]">
+                <img
+                  src={HERO_IMG}
+                  alt="Курьер Яндекс Еды"
+                  className="h-[440px] w-full object-cover md:h-[560px]"
+                  style={{ objectPosition: 'center 15%' }}
+                />
+                {/* Градиент снизу */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-              <div className="absolute -left-4 bottom-12 rounded-2xl bg-white px-5 py-3 shadow-xl md:-left-10">
-                <div className="text-xs font-medium text-gray-500">Средний заработок</div>
-                <div className="mt-0.5 text-2xl font-extrabold text-ink">5 000 ₽</div>
-                <div className="text-xs text-gray-400">в день</div>
+
+              {/* Бейдж: заработок — слева снизу */}
+              <div className="absolute -left-5 bottom-16 rounded-2xl bg-white p-4 shadow-2xl md:-left-12">
+                <div className="flex items-center gap-2">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-yellow">
+                    <Icon name="TrendingUp" size={18} className="text-ink" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-gray-400">Средний доход</div>
+                    <div className="text-xl font-extrabold leading-none text-ink">5 000 ₽</div>
+                    <div className="text-[11px] text-gray-400">в день</div>
+                  </div>
+                </div>
               </div>
-              <div className="absolute -right-4 top-48 rounded-2xl bg-ink px-5 py-3 shadow-xl md:-right-10">
-                <div className="text-xs font-medium text-white/60">Курьеров в России</div>
-                <div className="mt-0.5 text-2xl font-extrabold text-yellow">150К+</div>
+
+              {/* Бейдж: курьеры — справа середина */}
+              <div className="absolute -right-5 top-1/2 -translate-y-1/2 rounded-2xl bg-ink p-4 shadow-2xl md:-right-12">
+                <div className="text-[11px] text-white/50">Курьеров в России</div>
+                <div className="mt-0.5 text-2xl font-extrabold leading-none text-yellow">150К+</div>
               </div>
-              {/* Бейдж рейтинг */}
-              <div className="absolute bottom-10 -right-4 rounded-2xl bg-yellow px-4 py-2.5 shadow-xl md:-right-10">
+
+              {/* Бейдж: рейтинг — справа снизу */}
+              <div className="absolute -right-5 bottom-5 rounded-2xl bg-yellow p-3 shadow-2xl md:-right-12">
                 <div className="flex items-center gap-1">
                   {[1,2,3,4,5].map(i => <Icon key={i} name="Star" size={12} className="fill-ink text-ink" />)}
                 </div>
