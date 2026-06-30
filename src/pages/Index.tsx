@@ -33,9 +33,15 @@ const steps = [
 ];
 
 const reviews = [
-  { name: 'Алексей', role: 'Курьер на велосипеде · 8 мес.', text: 'Совмещаю с учёбой. График полностью свободный, выхожу когда удобно. Деньги приходят точно в срок.', earn: '3 800 ₽/день' },
-  { name: 'Марина', role: 'Пеший курьер · 1 год', text: 'Начала подрабатывать вечерами. За месяц получается хорошая прибавка к зарплате. Поддержка всегда на связи.', earn: '2 400 ₽/день' },
-  { name: 'Дмитрий', role: 'Курьер на авто · 6 мес.', text: 'Работаю полный день, заказов всегда хватает. Доход выше, чем ожидал. Рекомендую всем.', earn: '5 200 ₽/день' },
+  { name: 'Алексей', city: 'Москва', role: 'Курьер на велосипеде · 8 мес.', text: 'Совмещаю с учёбой в вузе. График полностью свободный — выхожу когда удобно. Деньги приходят точно в срок, ни разу не задержали.', earn: '3 800 ₽/день' },
+  { name: 'Марина', city: 'Санкт-Петербург', role: 'Пеший курьер · 1 год', text: 'Начала подрабатывать вечерами после основной работы. За месяц получается хорошая прибавка. Поддержка всегда на связи, быстро решают любые вопросы.', earn: '2 400 ₽/день' },
+  { name: 'Дмитрий', city: 'Москва', role: 'Курьер на авто · 6 мес.', text: 'Работаю полный день, заказов всегда хватает. Доход вышел выше, чем ожидал. Особенно приятны бонусы в часы пик — реально удваивают заработок.', earn: '5 200 ₽/день' },
+  { name: 'Иван', city: 'Казань', role: 'Курьер на самокате · 4 мес.', text: 'Раньше работал в офисе, теперь катаюсь по городу и зарабатываю больше. Свежий воздух, никакого начальника над головой. Советую попробовать.', earn: '4 100 ₽/день' },
+  { name: 'Ольга', city: 'Новосибирск', role: 'Пеший курьер · 7 мес.', text: 'Оформилась за один день — всё онлайн, никуда ехать не пришлось. Первый заказ взяла уже вечером того же дня. Очень удобное приложение.', earn: '2 900 ₽/день' },
+  { name: 'Руслан', city: 'Краснодар', role: 'Курьер на авто · 1.5 года', text: 'Работаю дольше всех в нашем чате. Стабильный доход, много постоянных клиентов в моём районе. Яндекс Еда — лучший способ зарабатывать на своём авто.', earn: '6 300 ₽/день' },
+  { name: 'Анастасия', city: 'Екатеринбург', role: 'Пеший курьер · 3 мес.', text: 'Мама в декрете — нашла идеальную подработку. Работаю пока муж дома, от 2 до 5 часов в день. Деньги небольшие, но стабильные и без задержек.', earn: '1 800 ₽/день' },
+  { name: 'Тимур', city: 'Уфа', role: 'Курьер на велосипеде · 10 мес.', text: 'За лето заработал на новый ноутбук. Летом очень много заказов, особенно в выходные. Зимой тоже работаю — выдали тёплую форму бесплатно.', earn: '4 500 ₽/день' },
+  { name: 'Светлана', city: 'Ростов-на-Дону', role: 'Пеший курьер · 5 мес.', text: 'Потеряла работу и не знала что делать. Подруга посоветовала попробовать. Теперь зарабатываю больше, чем на прошлой работе, и сама себе хозяйка.', earn: '3 200 ₽/день' },
 ];
 
 const faq = [
@@ -46,6 +52,98 @@ const faq = [
   { q: 'Нужна ли своя машина или велосипед?', a: 'Нет. В приложении Яндекс Про доступна аренда техники. Также можно работать пешком.' },
   { q: 'Берёте ли комиссию с чаевых?', a: 'Нет. Чаевые полностью ваши — мы не берём с них никакой комиссии.' },
 ];
+
+function ReviewsSlider() {
+  const [current, setCurrent] = useState(0);
+  const [isAuto, setIsAuto] = useState(true);
+  const visibleCount = 3;
+  const total = reviews.length;
+
+  useEffect(() => {
+    if (!isAuto) return;
+    const t = setInterval(() => {
+      setCurrent(c => (c + 1) % (total - visibleCount + 1));
+    }, 3500);
+    return () => clearInterval(t);
+  }, [isAuto, total]);
+
+  const prev = () => { setIsAuto(false); setCurrent(c => Math.max(0, c - 1)); };
+  const next = () => { setIsAuto(false); setCurrent(c => Math.min(total - visibleCount, c + 1)); };
+
+  return (
+    <div className="relative">
+      {/* Карточки */}
+      <div className="overflow-hidden">
+        <div
+          className="flex gap-5 transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(calc(-${current} * (100% / ${visibleCount} + ${20 / visibleCount}px)))` }}
+        >
+          {reviews.map((r) => (
+            <div
+              key={r.name + r.city}
+              className="flex w-[calc(33.333%-14px)] flex-none flex-col rounded-3xl border border-gray-100 bg-white p-6 shadow-sm md:p-7"
+            >
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex gap-0.5">
+                  {Array.from({ length: 5 }).map((_, j) => (
+                    <Icon key={j} name="Star" size={14} className="fill-yellow text-yellow" />
+                  ))}
+                </div>
+                <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[11px] text-gray-400">{r.city}</span>
+              </div>
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-gray-600 md:text-base">«{r.text}»</p>
+              <div className="mt-5 flex items-center justify-between border-t border-gray-100 pt-5">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow text-sm font-extrabold text-ink">
+                    {r.name[0]}
+                  </div>
+                  <div>
+                    <div className="font-bold text-ink">{r.name}</div>
+                    <div className="text-xs text-gray-400">{r.role}</div>
+                  </div>
+                </div>
+                <div className="rounded-xl bg-green-50 px-3 py-1.5 text-center">
+                  <div className="text-sm font-extrabold text-green-600">{r.earn}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Управление */}
+      <div className="mt-8 flex items-center justify-between">
+        {/* Точки */}
+        <div className="flex gap-2">
+          {Array.from({ length: total - visibleCount + 1 }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => { setIsAuto(false); setCurrent(i); }}
+              className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-ink' : 'w-2 bg-gray-300 hover:bg-gray-400'}`}
+            />
+          ))}
+        </div>
+        {/* Стрелки */}
+        <div className="flex gap-2">
+          <button
+            onClick={prev}
+            disabled={current === 0}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition hover:border-ink hover:bg-ink hover:text-white disabled:opacity-30"
+          >
+            <Icon name="ChevronLeft" size={20} />
+          </button>
+          <button
+            onClick={next}
+            disabled={current >= total - visibleCount}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition hover:border-ink hover:bg-ink hover:text-white disabled:opacity-30"
+          >
+            <Icon name="ChevronRight" size={20} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function useCountUp(target: number, duration = 1500, start = false) {
   const [count, setCount] = useState(0);
@@ -564,48 +662,23 @@ const Index = () => {
       </section>
 
       {/* Reviews */}
-      <section id="reviews" className="bg-gray-50 py-16 md:py-24">
+      <section id="reviews" className="overflow-hidden bg-gray-50 py-16 md:py-24">
         <div className="container px-4 md:px-8">
           <FadeIn>
-            <div className="mb-10 text-center md:mb-14">
+            <div className="mb-10 flex flex-col items-center text-center md:mb-12">
               <span className="inline-block rounded-full bg-yellow px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink">Реальные люди</span>
               <h2 className="mt-3 text-3xl font-extrabold md:text-5xl">Что говорят курьеры</h2>
-              <div className="mt-4 flex items-center justify-center gap-2">
-                <div className="flex gap-1">
+              <div className="mt-4 flex items-center gap-2">
+                <div className="flex gap-0.5">
                   {[1,2,3,4,5].map(i => <Icon key={i} name="Star" size={18} className="fill-yellow text-yellow" />)}
                 </div>
-                <span className="text-sm font-semibold text-gray-600">4.9 из 5 на основе 12 400+ отзывов</span>
+                <span className="text-sm font-semibold text-gray-600">4.9 из 5 · 12 400+ отзывов</span>
               </div>
             </div>
           </FadeIn>
-          <div className="grid gap-5 md:grid-cols-3">
-            {reviews.map((r, i) => (
-              <FadeIn key={r.name} delay={i * 100}>
-                <div className="flex h-full flex-col rounded-3xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
-                  <div className="flex gap-1">
-                    {Array.from({ length: 5 }).map((_, j) => (
-                      <Icon key={j} name="Star" size={16} className="fill-yellow text-yellow" />
-                    ))}
-                  </div>
-                  <p className="mt-4 flex-1 text-base leading-relaxed text-gray-600">«{r.text}»</p>
-                  <div className="mt-5 flex items-center justify-between border-t border-gray-100 pt-5">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow text-sm font-extrabold text-ink">
-                        {r.name[0]}
-                      </div>
-                      <div>
-                        <div className="font-bold">{r.name}</div>
-                        <div className="text-xs text-gray-400">{r.role}</div>
-                      </div>
-                    </div>
-                    <div className="rounded-xl bg-green-50 px-3 py-1.5 text-center">
-                      <div className="text-sm font-extrabold text-green-600">{r.earn}</div>
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
+
+          {/* Слайдер */}
+          <ReviewsSlider />
         </div>
       </section>
 
