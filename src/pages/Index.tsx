@@ -17,7 +17,7 @@ const BIKE_IMG = 'https://cdn.poehali.dev/projects/8e0ffd89-1049-4107-9ee2-4f408
 const WALK_IMG = 'https://cdn.poehali.dev/projects/8e0ffd89-1049-4107-9ee2-4f408e4b556f/files/0368a7e7-6655-417b-9883-28b185c7aa1d.jpg';
 
 const benefits = [
-  { icon: 'Wallet', title: 'От 5 000 рублей в день', text: 'Чем больше заказов — тем выше доход. Никаких потолков и ограничений.', accent: true },
+  { icon: 'Wallet', title: 'От 5 500 рублей в день', text: 'Чем больше заказов — тем выше доход. Никаких потолков и ограничений.', accent: true },
   { icon: 'CalendarClock', title: 'Свободный график', text: 'Сам решаешь, когда выходить. Работай 2 часа или весь день — как удобно.' },
   { icon: 'Zap', title: 'Мгновенные выплаты', text: 'На карту Яндекс Про деньги приходят через несколько минут после заказа.' },
   { icon: 'Bike', title: 'Любой транспорт', text: 'Пешком, на самокате, велосипеде, скутере или авто — выбираешь сам.' },
@@ -295,7 +295,7 @@ const Index = () => {
           className="flex w-full items-center justify-center gap-2 rounded-2xl bg-ink py-4 text-base font-extrabold text-white shadow-2xl active:scale-95"
         >
           <span className="h-2 w-2 animate-pulse rounded-full bg-green-400" />
-          Стать курьером — от 5 000 ₽/день
+          Стать курьером — от 5 500 ₽/день
         </button>
       </div>
 
@@ -377,7 +377,7 @@ const Index = () => {
 
             <p className="mt-5 max-w-md text-base leading-relaxed text-ink/70 md:text-lg">
               Свободный график, мгновенные выплаты и доход<br className="hidden md:block" />
-              <strong className="text-ink"> от 5 000 рублей в день</strong>. Оформление за 2–3 часа — начни уже сегодня.
+              <strong className="text-ink"> от 5 500 рублей в день</strong>. Оформление за 2–3 часа — начни уже сегодня.
             </p>
 
             {/* Теги */}
@@ -446,7 +446,7 @@ const Index = () => {
                   </div>
                   <div>
                     <div className="text-[11px] text-gray-400">Средний доход</div>
-                    <div className="text-xl font-extrabold leading-none text-ink">5 000 ₽</div>
+                    <div className="text-xl font-extrabold leading-none text-ink">5 500 ₽</div>
                     <div className="text-[11px] text-gray-400">в день</div>
                   </div>
                 </div>
@@ -474,7 +474,7 @@ const Index = () => {
       <section className="bg-ink text-white">
         <div className="container grid grid-cols-2 divide-x divide-white/10 px-4 md:grid-cols-4 md:px-8">
           {[
-            { value: 5000, label: 'рублей в день', prefix: 'от ', suffix: '' },
+            { value: 5500, label: 'рублей в день', prefix: 'от ', suffix: '' },
             { value: 150000, label: 'курьеров в России', prefix: '', suffix: '+' },
             { value: 700, label: 'городов присутствия', prefix: '', suffix: '+' },
             { value: 0, label: 'комиссия с чаевых', prefix: '', suffix: ' ₽' },
