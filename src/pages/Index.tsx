@@ -53,35 +53,56 @@ const faq = [
   { q: 'Берёте ли комиссию с чаевых?', a: 'Нет. Чаевые полностью ваши — мы не берём с них никакой комиссии.' },
 ];
 
+function useVisibleCount() {
+  const [visibleCount, setVisibleCount] = useState(1);
+  useEffect(() => {
+    const calc = () => {
+      const w = window.innerWidth;
+      if (w >= 1024) setVisibleCount(3);
+      else if (w >= 640) setVisibleCount(2);
+      else setVisibleCount(1);
+    };
+    calc();
+    window.addEventListener('resize', calc);
+    return () => window.removeEventListener('resize', calc);
+  }, []);
+  return visibleCount;
+}
+
 function ReviewsSlider() {
   const [current, setCurrent] = useState(0);
   const [isAuto, setIsAuto] = useState(true);
-  const visibleCount = 3;
+  const visibleCount = useVisibleCount();
   const total = reviews.length;
+  const maxIndex = Math.max(0, total - visibleCount);
+
+  useEffect(() => {
+    setCurrent(c => Math.min(c, maxIndex));
+  }, [maxIndex]);
 
   useEffect(() => {
     if (!isAuto) return;
     const t = setInterval(() => {
-      setCurrent(c => (c + 1) % (total - visibleCount + 1));
+      setCurrent(c => (c + 1) % (maxIndex + 1));
     }, 3500);
     return () => clearInterval(t);
-  }, [isAuto, total]);
+  }, [isAuto, maxIndex]);
 
   const prev = () => { setIsAuto(false); setCurrent(c => Math.max(0, c - 1)); };
-  const next = () => { setIsAuto(false); setCurrent(c => Math.min(total - visibleCount, c + 1)); };
+  const next = () => { setIsAuto(false); setCurrent(c => Math.min(maxIndex, c + 1)); };
 
   return (
     <div className="relative">
       {/* Карточки */}
       <div className="overflow-hidden">
         <div
-          className="flex gap-5 transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(calc(-${current} * (100% / ${visibleCount} + ${20 / visibleCount}px)))` }}
+          className="flex gap-4 transition-transform duration-500 ease-in-out md:gap-5"
+          style={{ transform: `translateX(calc(-${current} * (100% / ${visibleCount} + ${(visibleCount === 1 ? 16 : 20) / visibleCount}px)))` }}
         >
           {reviews.map((r) => (
             <div
               key={r.name + r.city}
-              className="flex w-[calc(33.333%-14px)] flex-none flex-col rounded-3xl border border-gray-100 bg-white p-6 shadow-sm md:p-7"
+              className="flex w-full flex-none flex-col rounded-3xl border border-gray-100 bg-white p-5 shadow-sm sm:w-[calc(50%-8px)] sm:p-6 lg:w-[calc(33.333%-14px)] lg:p-7"
             >
               <div className="flex items-start justify-between gap-2">
                 <div className="flex gap-0.5">
@@ -112,10 +133,10 @@ function ReviewsSlider() {
       </div>
 
       {/* Управление */}
-      <div className="mt-8 flex items-center justify-between">
+      <div className="mt-6 flex items-center justify-between md:mt-8">
         {/* Точки */}
-        <div className="flex gap-2">
-          {Array.from({ length: total - visibleCount + 1 }).map((_, i) => (
+        <div className="flex flex-wrap gap-2">
+          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
             <button
               key={i}
               onClick={() => { setIsAuto(false); setCurrent(i); }}
@@ -128,16 +149,16 @@ function ReviewsSlider() {
           <button
             onClick={prev}
             disabled={current === 0}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition hover:border-ink hover:bg-ink hover:text-white disabled:opacity-30"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition hover:border-ink hover:bg-ink hover:text-white disabled:opacity-30 md:h-10 md:w-10"
           >
-            <Icon name="ChevronLeft" size={20} />
+            <Icon name="ChevronLeft" size={18} />
           </button>
           <button
             onClick={next}
-            disabled={current >= total - visibleCount}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition hover:border-ink hover:bg-ink hover:text-white disabled:opacity-30"
+            disabled={current >= maxIndex}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition hover:border-ink hover:bg-ink hover:text-white disabled:opacity-30 md:h-10 md:w-10"
           >
-            <Icon name="ChevronRight" size={20} />
+            <Icon name="ChevronRight" size={18} />
           </button>
         </div>
       </div>
