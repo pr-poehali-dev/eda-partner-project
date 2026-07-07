@@ -327,6 +327,25 @@ const Index = () => {
             <img src={LOGO_URL} alt="Яндекс Еда" className="h-8 w-auto md:h-9" />
             <span className="text-base font-bold md:text-lg">Яндекс <span className="font-normal text-gray-500">Еда</span></span>
           </div>
+
+          {/* Мини-галерея иконок транспорта */}
+          <div className="hidden items-center gap-1.5 lg:flex">
+            {[
+              { icon: 'Footprints', label: 'Пешком' },
+              { icon: 'Bike', label: 'Велосипед' },
+              { icon: 'Zap', label: 'Самокат' },
+              { icon: 'Car', label: 'Авто' },
+            ].map(t => (
+              <span
+                key={t.icon}
+                title={t.label}
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow/40 text-ink transition hover:bg-yellow"
+              >
+                <Icon name={t.icon} size={16} />
+              </span>
+            ))}
+          </div>
+
           <nav className="hidden items-center gap-7 text-sm font-medium text-gray-600 md:flex">
             <a href="#calc" className="transition hover:text-ink">Калькулятор</a>
             <a href="#benefits" className="transition hover:text-ink">Преимущества</a>
@@ -343,6 +362,20 @@ const Index = () => {
         </div>
         {menuOpen && (
           <div className="border-t border-gray-100 bg-white px-4 py-4 shadow-lg md:hidden">
+            {/* Мини-галерея иконок транспорта */}
+            <div className="mb-4 flex items-center gap-2">
+              {[
+                { icon: 'Footprints', label: 'Пешком' },
+                { icon: 'Bike', label: 'Велосипед' },
+                { icon: 'Zap', label: 'Самокат' },
+                { icon: 'Car', label: 'Авто' },
+              ].map(t => (
+                <span key={t.icon} className="flex items-center gap-1.5 rounded-full bg-yellow/40 px-3 py-1.5 text-xs font-medium text-ink">
+                  <Icon name={t.icon} size={14} />
+                  {t.label}
+                </span>
+              ))}
+            </div>
             <div className="flex flex-col gap-4 text-gray-700">
               <a href="#calc" className="py-1 text-base font-medium" onClick={() => setMenuOpen(false)}>Калькулятор дохода</a>
               <a href="#benefits" className="py-1 text-base font-medium" onClick={() => setMenuOpen(false)}>Преимущества</a>
