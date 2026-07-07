@@ -330,7 +330,9 @@ const Index = () => {
 
         <div className="container flex h-16 items-center justify-between px-4 md:h-20 md:px-8">
           <div className="flex items-center gap-2">
-            <img src={LOGO_URL} alt="Яндекс Еда" className="h-8 w-auto brightness-0 invert md:h-9" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white p-1 shadow-sm md:h-10 md:w-10">
+              <img src={LOGO_URL} alt="Яндекс Еда" className="h-full w-full" />
+            </div>
             <span className="text-base font-bold text-white md:text-lg">Яндекс <span className="font-normal text-white/70">Еда</span></span>
           </div>
 
