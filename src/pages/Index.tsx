@@ -389,11 +389,11 @@ const Index = () => {
             <h1 className="mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
               Стань курьером<br />
               <span className="relative inline-block whitespace-nowrap">
-                Яндекс Еды
-                <span className="absolute -bottom-1 left-0 h-[6px] w-full rounded-full bg-ink/25" />
+                Яндекс Еда
+                <span className="absolute -bottom-1 left-0 h-[6px] w-full rounded-full bg-red-600" />
               </span>
               <br />
-              <span className="text-ink/60">и зарабатывай</span>
+              <span className="text-red-600">и зарабатывай</span>
             </h1>
 
             <p className="mt-5 max-w-md text-base leading-relaxed text-ink/70 md:text-lg">
