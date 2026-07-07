@@ -321,11 +321,17 @@ const Index = () => {
       </div>
 
       {/* Header */}
-      <header className={`sticky top-0 z-40 transition-all duration-300 ${scrolled ? 'border-b border-gray-100 bg-white/98 shadow-sm backdrop-blur' : 'bg-transparent'}`}>
-        <div className="container flex h-14 items-center justify-between px-4 md:h-16 md:px-8">
+      <header className={`sticky top-0 z-40 overflow-hidden transition-all duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
+        {/* Фоновое фото */}
+        <div className="absolute inset-0 -z-10">
+          <img src={BIKE_IMG} alt="Курьеры Яндекс Еды" className="h-full w-full object-cover" style={{ objectPosition: 'center 30%' }} />
+          <div className={`absolute inset-0 transition-all duration-300 ${scrolled ? 'bg-ink/85 backdrop-blur-md' : 'bg-ink/60'}`} />
+        </div>
+
+        <div className="container flex h-16 items-center justify-between px-4 md:h-20 md:px-8">
           <div className="flex items-center gap-2">
-            <img src={LOGO_URL} alt="Яндекс Еда" className="h-8 w-auto md:h-9" />
-            <span className="text-base font-bold md:text-lg">Яндекс <span className="font-normal text-gray-500">Еда</span></span>
+            <img src={LOGO_URL} alt="Яндекс Еда" className="h-8 w-auto brightness-0 invert md:h-9" />
+            <span className="text-base font-bold text-white md:text-lg">Яндекс <span className="font-normal text-white/70">Еда</span></span>
           </div>
 
           {/* Мини-галерея иконок транспорта */}
@@ -339,24 +345,24 @@ const Index = () => {
               <span
                 key={t.icon}
                 title={t.label}
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow/40 text-ink transition hover:bg-yellow"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-yellow hover:text-ink"
               >
                 <Icon name={t.icon} size={16} />
               </span>
             ))}
           </div>
 
-          <nav className="hidden items-center gap-7 text-sm font-medium text-gray-600 md:flex">
-            <a href="#calc" className="transition hover:text-ink">Калькулятор</a>
-            <a href="#benefits" className="transition hover:text-ink">Преимущества</a>
-            <a href="#how" className="transition hover:text-ink">Как начать</a>
-            <a href="#reviews" className="transition hover:text-ink">Отзывы</a>
-            <a href="#faq" className="transition hover:text-ink">Вопросы</a>
+          <nav className="hidden items-center gap-7 text-sm font-medium text-white/80 md:flex">
+            <a href="#calc" className="transition hover:text-white">Калькулятор</a>
+            <a href="#benefits" className="transition hover:text-white">Преимущества</a>
+            <a href="#how" className="transition hover:text-white">Как начать</a>
+            <a href="#reviews" className="transition hover:text-white">Отзывы</a>
+            <a href="#faq" className="transition hover:text-white">Вопросы</a>
           </nav>
-          <Button onClick={go} className="hidden rounded-full bg-ink px-5 py-2 text-sm font-bold text-white shadow-md transition hover:bg-ink/90 hover:shadow-lg md:inline-flex">
+          <Button onClick={go} className="hidden rounded-full bg-yellow px-5 py-2 text-sm font-bold text-ink shadow-md transition hover:bg-yellow/90 hover:shadow-lg md:inline-flex">
             Стать курьером
           </Button>
-          <button className="p-1 md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="p-1 text-white md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
             <Icon name={menuOpen ? 'X' : 'Menu'} size={24} />
           </button>
         </div>
