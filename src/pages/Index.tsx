@@ -396,6 +396,22 @@ const Index = () => {
         )}
       </header>
 
+      {/* Счётчик статистики */}
+      <section className="bg-ink text-white">
+        <div className="container grid grid-cols-2 divide-x divide-white/10 px-4 md:grid-cols-4 md:px-8">
+          {[
+            { value: 5500, label: 'рублей в день', prefix: 'от ', suffix: '' },
+            { value: 150000, label: 'курьеров в России', prefix: '', suffix: '+' },
+            { value: 700, label: 'городов присутствия', prefix: '', suffix: '+' },
+            { value: 0, label: 'комиссия с чаевых', prefix: '', suffix: ' ₽' },
+          ].map((s, i) => (
+            <div key={i} className="px-4 py-7 md:px-8 md:py-10">
+              <StatCounter value={s.value} label={s.label} prefix={s.prefix} suffix={s.suffix} />
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Hero */}
       <section className="relative min-h-[92vh] overflow-hidden">
         {/* Фон: левая часть — жёлтая, правая — тёмная (на десктопе) */}
@@ -529,22 +545,6 @@ const Index = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Счётчик статистики */}
-      <section className="bg-ink text-white">
-        <div className="container grid grid-cols-2 divide-x divide-white/10 px-4 md:grid-cols-4 md:px-8">
-          {[
-            { value: 5500, label: 'рублей в день', prefix: 'от ', suffix: '' },
-            { value: 150000, label: 'курьеров в России', prefix: '', suffix: '+' },
-            { value: 700, label: 'городов присутствия', prefix: '', suffix: '+' },
-            { value: 0, label: 'комиссия с чаевых', prefix: '', suffix: ' ₽' },
-          ].map((s, i) => (
-            <div key={i} className="px-4 py-7 md:px-8 md:py-10">
-              <StatCounter value={s.value} label={s.label} prefix={s.prefix} suffix={s.suffix} />
-            </div>
-          ))}
         </div>
       </section>
 
