@@ -822,6 +822,35 @@ const Index = () => {
           <Button onClick={go} className="rounded-full bg-yellow px-7 font-bold text-ink transition hover:scale-105 hover:bg-yellow/90">
             Стать курьером →
           </Button>
+
+          {/* Контакты */}
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="https://t.me/Nerabotaizarabatyvai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:bg-white/20 hover:text-white"
+            >
+              <Icon name="Send" size={16} />
+              Telegram
+            </a>
+            <a
+              href="https://wa.me/79384534918"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:bg-white/20 hover:text-white"
+            >
+              <Icon name="MessageCircle" size={16} />
+              WhatsApp
+            </a>
+            <a
+              href="tel:+79258648506"
+              className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:bg-white/20 hover:text-white"
+            >
+              <Icon name="MessageSquare" size={16} />
+              Max
+            </a>
+          </div>
         </div>
         <div className="container mt-8 border-t border-white/10 px-4 pt-6 text-center text-xs text-white/30 md:px-8">
           © 2026 Набор курьеров Яндекс.Еда. Все права защищены.
