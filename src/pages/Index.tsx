@@ -851,6 +851,13 @@ const Index = () => {
               Max
             </a>
           </div>
+
+          <p className="mt-2 max-w-sm text-sm text-white/50">
+            Пишите, задавай вопросы, мы обязательно постараемся помочь!
+            <br />
+            <br />
+            С уважением, команда Яндекс.Еда!
+          </p>
         </div>
         <div className="container mt-8 border-t border-white/10 px-4 pt-6 text-center text-xs text-white/30 md:px-8">
           © 2026 Набор курьеров Яндекс.Еда. Все права защищены.
