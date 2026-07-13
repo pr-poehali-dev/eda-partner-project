@@ -723,6 +723,78 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Контакты */}
+      <section className="container px-4 py-16 md:px-8 md:py-24">
+        <FadeIn>
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-ink px-6 py-14 text-center text-white md:px-10 md:py-20">
+            <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-yellow/10" />
+            <div className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-white/5" />
+
+            <div className="relative">
+              <span className="inline-flex items-center gap-2 rounded-full bg-yellow px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-ink">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-ink" />
+                Мы на связи
+              </span>
+
+              <h2 className="mx-auto mt-5 max-w-2xl text-3xl font-extrabold leading-tight md:text-5xl">
+                Остались вопросы?<br />Мы всегда рядом
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
+                Не бойтесь спрашивать — расскажем про график, выплаты, оформление и ответим на любой,
+                даже самый мелкий вопрос. Напишите нам в любое время, и мы обязательно поможем.
+              </p>
+
+              <div className="mx-auto mt-9 grid max-w-3xl gap-4 sm:grid-cols-3">
+                <a
+                  href="https://t.me/Nerabotaizarabatyvai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col items-center gap-3 rounded-3xl bg-white/10 px-5 py-7 backdrop-blur transition hover:scale-105 hover:bg-yellow hover:text-ink"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow text-ink transition group-hover:bg-ink group-hover:text-yellow">
+                    <Icon name="Send" size={26} />
+                  </div>
+                  <div>
+                    <div className="text-base font-extrabold">Telegram</div>
+                    <div className="mt-0.5 text-sm text-white/60 group-hover:text-ink/70">@Nerabotaizarabatyvai</div>
+                  </div>
+                </a>
+
+                <a
+                  href="https://wa.me/79384534918"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col items-center gap-3 rounded-3xl bg-white/10 px-5 py-7 backdrop-blur transition hover:scale-105 hover:bg-yellow hover:text-ink"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow text-ink transition group-hover:bg-ink group-hover:text-yellow">
+                    <Icon name="MessageCircle" size={26} />
+                  </div>
+                  <div>
+                    <div className="text-base font-extrabold">WhatsApp</div>
+                    <div className="mt-0.5 text-sm text-white/60 group-hover:text-ink/70">+7 938 453-49-18</div>
+                  </div>
+                </a>
+
+                <a
+                  href="tel:+79258648506"
+                  className="group flex flex-col items-center gap-3 rounded-3xl bg-white/10 px-5 py-7 backdrop-blur transition hover:scale-105 hover:bg-yellow hover:text-ink"
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-yellow text-ink transition group-hover:bg-ink group-hover:text-yellow">
+                    <Icon name="MessageSquare" size={26} />
+                  </div>
+                  <div>
+                    <div className="text-base font-extrabold">Max</div>
+                    <div className="mt-0.5 text-sm text-white/60 group-hover:text-ink/70">+7 925 864-85-06</div>
+                  </div>
+                </a>
+              </div>
+
+              <p className="mt-8 text-sm text-white/50">Отвечаем быстро — обычно в течение нескольких минут</p>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
       {/* Reviews */}
       <section id="reviews" className="overflow-hidden bg-gray-50 py-16 md:py-24">
         <div className="container px-4 md:px-8">
@@ -822,35 +894,6 @@ const Index = () => {
           <Button onClick={go} className="rounded-full bg-yellow px-7 font-bold text-ink transition hover:scale-105 hover:bg-yellow/90">
             Стать курьером →
           </Button>
-
-          {/* Контакты */}
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="https://t.me/Nerabotaizarabatyvai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:bg-white/20 hover:text-white"
-            >
-              <Icon name="Send" size={16} />
-              Telegram
-            </a>
-            <a
-              href="https://wa.me/79384534918"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:bg-white/20 hover:text-white"
-            >
-              <Icon name="MessageCircle" size={16} />
-              WhatsApp
-            </a>
-            <a
-              href="tel:+79258648506"
-              className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:bg-white/20 hover:text-white"
-            >
-              <Icon name="MessageSquare" size={16} />
-              Max
-            </a>
-          </div>
 
           <p className="mt-2 max-w-sm text-sm text-white/50">
             Пишите, задавай вопросы, мы обязательно постараемся помочь!
