@@ -400,19 +400,29 @@ const Index = () => {
       <section className="relative min-h-[92vh] overflow-hidden">
         {/* Фон: левая часть — жёлтая, правая — тёмная (на десктопе) */}
         <div className="absolute inset-0 flex">
-          <div className="w-full bg-yellow md:w-[55%]" />
+          <div className="relative w-full overflow-hidden bg-yellow md:w-[55%]">
+            {/* Сетка-паттерн */}
+            <div
+              className="absolute inset-0 opacity-[0.07]"
+              style={{ backgroundImage: 'radial-gradient(#21201F 1.3px, transparent 1.3px)', backgroundSize: '26px 26px' }}
+            />
+          </div>
           <div className="hidden bg-ink md:block md:w-[45%]" />
         </div>
-        {/* Декоративные круги */}
-        <div className="pointer-events-none absolute left-[30%] top-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/4 rounded-full bg-white/10" />
-        <div className="pointer-events-none absolute bottom-0 left-10 h-48 w-48 rounded-full bg-ink/5" />
+        {/* Анимированные декоративные пятна */}
+        <div className="pointer-events-none absolute left-[28%] top-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/4 animate-blob rounded-full bg-white/10 blur-2xl" />
+        <div className="pointer-events-none absolute bottom-0 left-6 h-56 w-56 animate-float-slow rounded-full bg-ink/5" />
+        <div className="pointer-events-none absolute right-[12%] top-16 hidden h-40 w-40 animate-blob rounded-full bg-yellow/20 blur-2xl md:block" />
 
         <div className="container relative grid min-h-[92vh] items-center gap-8 px-4 py-16 md:grid-cols-2 md:gap-10 md:px-8 md:py-0">
 
           {/* Левая колонка — текст */}
           <div className="flex flex-col justify-center md:order-1">
+            {/* Логотип */}
+            <img src={LOGO_URL} alt="Яндекс Еда" className="mb-6 h-9 w-auto md:h-11" />
+
             {/* Соцдоказательство */}
-            <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold text-ink shadow backdrop-blur">
+            <div className="mb-5 inline-flex w-fit animate-fade-in items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold text-ink shadow-lg ring-1 ring-ink/5 backdrop-blur">
               <span className="flex -space-x-1">
                 {['А', 'М', 'Д'].map((l, i) => (
                   <span key={i} className="flex h-5 w-5 items-center justify-center rounded-full bg-ink text-[9px] font-bold text-yellow ring-2 ring-white">{l}</span>
@@ -422,19 +432,22 @@ const Index = () => {
             </div>
 
             {/* Бейдж статуса */}
-            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-ink/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-ink">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-ink px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-yellow shadow-lg">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
+              </span>
               Набор курьеров открыт
             </span>
 
-            <h1 className="mt-4 text-4xl font-extrabold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
+            <h1 className="mt-4 text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
               Стань курьером<br />
               <span className="relative inline-block whitespace-nowrap">
-                Яндекс Еда
-                <span className="absolute -bottom-1 left-0 h-[6px] w-full rounded-full bg-red-600" />
+                <span className="bg-gradient-to-r from-red-600 via-red-500 to-orange-500 bg-clip-text text-transparent">Яндекс Еда</span>
+                <span className="absolute -bottom-1 left-0 h-[7px] w-full rounded-full bg-gradient-to-r from-red-600 to-orange-500" />
               </span>
               <br />
-              <span className="text-red-600">и зарабатывай</span>
+              <span className="text-ink">и зарабатывай</span>
             </h1>
 
             <p className="mt-5 max-w-md text-base leading-relaxed text-ink/70 md:text-lg">
@@ -482,26 +495,36 @@ const Index = () => {
 
           {/* Правая колонка — фото */}
           <div className="relative flex items-center justify-center py-8 md:order-2 md:py-0">
-            {/* Декоративное кольцо */}
+            {/* Декоративные кольца + орбита */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="h-[440px] w-[440px] rounded-full border-2 border-white/10 md:h-[560px] md:w-[560px]" />
             </div>
+            <div className="absolute inset-0 hidden items-center justify-center md:flex">
+              <div className="relative h-[600px] w-[600px] animate-spin-slow rounded-full border border-dashed border-white/15">
+                <span className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow shadow-[0_0_20px_rgba(252,224,0,0.8)]" />
+                <span className="absolute bottom-8 right-6 h-2 w-2 rounded-full bg-white/60" />
+              </div>
+            </div>
 
-            <div className="relative w-full max-w-sm md:max-w-md">
+            <div className="relative w-full max-w-sm animate-float md:max-w-md">
               {/* Фото */}
-              <div className="relative overflow-hidden rounded-[2.5rem] shadow-[0_32px_80px_rgba(0,0,0,0.35)]">
+              <div className="group relative overflow-hidden rounded-[2.5rem] shadow-[0_32px_80px_rgba(0,0,0,0.35)] ring-1 ring-white/10">
                 <img
                   src={HERO_IMG}
                   alt="Курьер Яндекс Еды"
-                  className="h-[440px] w-full object-cover md:h-[560px]"
+                  className="h-[440px] w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-[560px]"
                   style={{ objectPosition: 'center 15%' }}
                 />
                 {/* Градиент снизу */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                {/* Блик */}
+                <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                  <div className="absolute top-0 h-full w-1/3 animate-shine bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+                </div>
               </div>
 
               {/* Бейдж: заработок — слева снизу */}
-              <div className="absolute -left-5 bottom-16 rounded-2xl bg-white p-4 shadow-2xl md:-left-12">
+              <div className="absolute -left-5 bottom-16 animate-float-slow rounded-2xl bg-white p-4 shadow-2xl md:-left-12">
                 <div className="flex items-center gap-2">
                   <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-yellow">
                     <Icon name="TrendingUp" size={18} className="text-ink" />
@@ -515,13 +538,13 @@ const Index = () => {
               </div>
 
               {/* Бейдж: курьеры — справа середина */}
-              <div className="absolute -right-5 top-1/2 -translate-y-1/2 rounded-2xl bg-ink p-4 shadow-2xl md:-right-12">
+              <div className="absolute -right-5 top-1/2 -translate-y-1/2 animate-float rounded-2xl bg-ink p-4 shadow-2xl md:-right-12">
                 <div className="text-[11px] text-white/50">Курьеров в России</div>
                 <div className="mt-0.5 text-2xl font-extrabold leading-none text-yellow">150К+</div>
               </div>
 
               {/* Бейдж: рейтинг — справа снизу */}
-              <div className="absolute -right-5 bottom-5 rounded-2xl bg-yellow p-3 shadow-2xl md:-right-12">
+              <div className="absolute -right-5 bottom-5 animate-float-slow rounded-2xl bg-yellow p-3 shadow-2xl md:-right-12">
                 <div className="flex items-center gap-1">
                   {[1,2,3,4,5].map(i => <Icon key={i} name="Star" size={12} className="fill-ink text-ink" />)}
                 </div>
