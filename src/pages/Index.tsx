@@ -398,69 +398,19 @@ const Index = () => {
 
       {/* Hero */}
       <section className="relative min-h-[92vh] overflow-hidden">
-        {/* Фон: левая часть — тёмная, правая — жёлтая (на десктопе) */}
+        {/* Фон: левая часть — жёлтая, правая — тёмная (на десктопе) */}
         <div className="absolute inset-0 flex">
-          <div className="w-full bg-yellow md:w-[45%] md:bg-ink" />
-          <div className="hidden bg-ink md:block md:w-[55%] md:bg-yellow" />
+          <div className="w-full bg-yellow md:w-[55%]" />
+          <div className="hidden bg-ink md:block md:w-[45%]" />
         </div>
         {/* Декоративные круги */}
         <div className="pointer-events-none absolute left-[30%] top-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/4 rounded-full bg-white/10" />
-        <div className="pointer-events-none absolute bottom-0 right-10 h-48 w-48 rounded-full bg-ink/5" />
+        <div className="pointer-events-none absolute bottom-0 left-10 h-48 w-48 rounded-full bg-ink/5" />
 
         <div className="container relative grid min-h-[92vh] items-center gap-8 px-4 py-16 md:grid-cols-2 md:gap-10 md:px-8 md:py-0">
 
-          {/* Левая колонка — фото */}
-          <div className="relative flex items-center justify-center py-8 md:py-0 md:order-1">
-            {/* Декоративное кольцо */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-[440px] w-[440px] rounded-full border-2 border-white/10 md:h-[560px] md:w-[560px]" />
-            </div>
-
-            <div className="relative w-full max-w-sm md:max-w-md">
-              {/* Фото */}
-              <div className="relative overflow-hidden rounded-[2.5rem] shadow-[0_32px_80px_rgba(0,0,0,0.35)]">
-                <img
-                  src={HERO_IMG}
-                  alt="Курьер Яндекс Еды"
-                  className="h-[440px] w-full object-cover md:h-[560px]"
-                  style={{ objectPosition: 'center 15%' }}
-                />
-                {/* Градиент снизу */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-
-              {/* Бейдж: заработок — слева снизу */}
-              <div className="absolute -left-5 bottom-16 rounded-2xl bg-white p-4 shadow-2xl md:-left-12">
-                <div className="flex items-center gap-2">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-yellow">
-                    <Icon name="TrendingUp" size={18} className="text-ink" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] text-gray-400">Средний доход</div>
-                    <div className="text-xl font-extrabold leading-none text-ink">5 500 ₽</div>
-                    <div className="text-[11px] text-gray-400">в день</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Бейдж: курьеры — справа середина */}
-              <div className="absolute -right-5 top-1/2 -translate-y-1/2 rounded-2xl bg-ink p-4 shadow-2xl md:-right-12">
-                <div className="text-[11px] text-white/50">Курьеров в России</div>
-                <div className="mt-0.5 text-2xl font-extrabold leading-none text-yellow">150К+</div>
-              </div>
-
-              {/* Бейдж: рейтинг — справа снизу */}
-              <div className="absolute -right-5 bottom-5 rounded-2xl bg-yellow p-3 shadow-2xl md:-right-12">
-                <div className="flex items-center gap-1">
-                  {[1,2,3,4,5].map(i => <Icon key={i} name="Star" size={12} className="fill-ink text-ink" />)}
-                </div>
-                <div className="mt-0.5 text-xs font-bold text-ink">4.9 в App Store</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Правая колонка — текст */}
-          <div className="flex flex-col justify-center md:order-2">
+          {/* Левая колонка — текст */}
+          <div className="flex flex-col justify-center md:order-1">
             {/* Соцдоказательство */}
             <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold text-ink shadow backdrop-blur">
               <span className="flex -space-x-1">
@@ -527,6 +477,56 @@ const Index = () => {
                   <div className="text-xs text-ink/50">{s.l}</div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Правая колонка — фото */}
+          <div className="relative flex items-center justify-center py-8 md:order-2 md:py-0">
+            {/* Декоративное кольцо */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="h-[440px] w-[440px] rounded-full border-2 border-white/10 md:h-[560px] md:w-[560px]" />
+            </div>
+
+            <div className="relative w-full max-w-sm md:max-w-md">
+              {/* Фото */}
+              <div className="relative overflow-hidden rounded-[2.5rem] shadow-[0_32px_80px_rgba(0,0,0,0.35)]">
+                <img
+                  src={HERO_IMG}
+                  alt="Курьер Яндекс Еды"
+                  className="h-[440px] w-full object-cover md:h-[560px]"
+                  style={{ objectPosition: 'center 15%' }}
+                />
+                {/* Градиент снизу */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+
+              {/* Бейдж: заработок — слева снизу */}
+              <div className="absolute -left-5 bottom-16 rounded-2xl bg-white p-4 shadow-2xl md:-left-12">
+                <div className="flex items-center gap-2">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-yellow">
+                    <Icon name="TrendingUp" size={18} className="text-ink" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-gray-400">Средний доход</div>
+                    <div className="text-xl font-extrabold leading-none text-ink">5 500 ₽</div>
+                    <div className="text-[11px] text-gray-400">в день</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Бейдж: курьеры — справа середина */}
+              <div className="absolute -right-5 top-1/2 -translate-y-1/2 rounded-2xl bg-ink p-4 shadow-2xl md:-right-12">
+                <div className="text-[11px] text-white/50">Курьеров в России</div>
+                <div className="mt-0.5 text-2xl font-extrabold leading-none text-yellow">150К+</div>
+              </div>
+
+              {/* Бейдж: рейтинг — справа снизу */}
+              <div className="absolute -right-5 bottom-5 rounded-2xl bg-yellow p-3 shadow-2xl md:-right-12">
+                <div className="flex items-center gap-1">
+                  {[1,2,3,4,5].map(i => <Icon key={i} name="Star" size={12} className="fill-ink text-ink" />)}
+                </div>
+                <div className="mt-0.5 text-xs font-bold text-ink">4.9 в App Store</div>
+              </div>
             </div>
           </div>
         </div>
